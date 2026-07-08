@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vals Revision - Achieving Greatness, A Pathway To First Class</title>
+<style>
+    :root {
+        --primary: #1E3A8A; /* Deep Blue - Trust/Professional */
+        --secondary: #F59E0B; /* Gold - Excellence/Invitation */
+        --accent: #10B981; /* Green - Growth/Encouraging */
+        --bg: #F8FAFC;
+        --text: #1E293B;
+        --danger: #EF4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', sans-serif; }
+
+    body {
+        background: linear-gradient(rgba(30,58,138,0.9), rgba(30,58,138,0.9)),
+                    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471') center/cover fixed;
+        color: white;
+        min-height: 100vh;
+    }
+
+   .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(0,0,0,0.4);
+        border-radius: 20px;
+        margin-bottom: 30px;
+        border: 2px solid var(--secondary);
+    }
+
+   .logo { font-size: 3rem; font-weight: 800; color: var(--secondary); letter-spacing: 2px; }
+   .motto { font-size: 1.2rem; margin-top: 10px; color: var(--accent); font-weight: 600; }
+   .founder { margin-top: 15px; font-size: 1rem; opacity: 0.9; }
+
+   .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+   .subject-card {
+        background: white;
+        color: var(--text);
+        padding: 25px;
+        border-radius: 15px;
+        transition: 0.3s;
+        border-top: 6px solid var(--primary);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+   .subject-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+   .subject-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+   .subject-icon { font-size: 3rem; margin-bottom: 10px; }
+
+   .topic-list { margin: 15px 0; text-align: left; }
+   .topic-list h4 { color: var(--accent); margin: 10px 0 5px 0; font-size: 0.9rem; }
+   .topic-list ul { list-style: none; font-size: 0.85rem; }
+   .topic-list li { padding: 3px 0; }
+
+   .semester-btn {
+        background: var(--secondary);
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        margin: 8px 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.2s;
+    }
+   .semester-btn:hover { background: #D97706; transform: scale(1.05); }
+
+   .quiz-box {
+        background: white;
+        color: var(--text);
+        padding: 30px;
+        border-radius: 20px;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+   .question { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: var(--primary); }
+   .options button {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        margin: 12px 0;
+        border: 2px solid #E2E8F0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1.05rem;
+        font-weight: 500;
+        transition: 0.2s;
+    }
+   .options button:hover { border-color: var(--primary); background: #EFF6FF; }
+   .options button.correct { background: #D1FAE5; border-color: var(--accent); }
+   .options button.wrong { background: #FEE2E2; border-color: var(--danger); }
+
+   .stats { display: flex; justify-content: space-between; margin-bottom: 25px; font-weight: 700; font-size: 1.1rem; }
+   .correct { color: var(--accent); }.wrong { color: var(--danger); }
+
+   .back-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+   .back-btn:hover { background: #1E40AF; }
+
+   .progress-bar { height: 8px; background: #E2E8F0; border-radius: 10px; margin-bottom: 20px; }
+   .progress { height: 100%; background: var(--accent); border-radius: 10px; width: 1%; transition: 0.3s; }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">VALS REVISION</div>
+        <div class="motto">Achieving Greatness, A Pathway To First Class</div>
+        <div class="founder">Founded by Valentine Godsen Govina</div>
+    </header>
+
+    <div id="home">
+        <h2 style="text-align:center; margin-bottom:30px; font-size:2rem;">Select Subject & Semester</h2>
+        <div class="subject-grid" id="subjectGrid"></div>
+    </div>
+
+    <div id="quiz" class="quiz-box">
+        <button class="back-btn" onclick="goHome()">← Back to Subjects</button>
+        <h3 id="quizTitle" style="color:var(--primary); margin-bottom:15px;"></h3>
+        <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
+        <div class="stats">
+            <span>Question: <span id="qNum">1</span>/100</span>
+            <span class="correct">Score: <span id="score">0</span></span>
+        </div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsBox"></div>
+    </div>
+</div>
+
+<script>
+// ========== FULL COURSE TOPICS ==========
+const courseTopics = {
+    Physics: {
+        '101': ['Measurement & Units', 'Vectors & Scalars', 'Kinematics', 'Dynamics & Newton\'s Laws', 'Work, Energy & Power', 'Momentum & Collisions', 'Rotational Motion', 'Gravitation', 'Simple Harmonic Motion', 'Fluid Mechanics'],
+        '102': ['Heat & Thermodynamics', 'Waves & Sound', 'Electrostatics', 'Current Electricity', 'Magnetism', 'Electromagnetic Induction', 'Optics', 'Modern Physics', 'Nuclear Physics', 'Semiconductors']
+    },
+    Chemistry: {
+        '101': ['Atomic Structure', 'Chemical Bonding', 'Stoichiometry', 'Acids, Bases & Salts', 'Redox Reactions', 'States of Matter', 'Chemical Energetics', 'Chemical Kinetics', 'Chemical Equilibrium', 'Introduction to Organic Chemistry'],
+        '102': ['Hydrocarbons', 'Functional Groups', 'Alcohols & Phenols', 'Aldehydes & Ketones', 'Carboxylic Acids', 'Amines', 'Polymers', 'Environmental Chemistry', 'Analytical Chemistry', 'Industrial Chemistry']
+    },
+    Mathematics: {
+        '101': ['Algebra', 'Trigonometry', 'Sets & Logic', 'Matrices & Determinants', 'Complex Numbers', 'Coordinate Geometry', 'Differentiation', 'Integration', 'Sequences & Series', 'Probability'],
+        '102': ['Vectors', 'Statistics', 'Differential Equations', 'Linear Programming', 'Numerical Methods', 'Fourier Series', 'Laplace Transforms', 'Mechanics', 'Abstract Algebra', 'Real Analysis']
+    },
+    Biology: {
+        '101': ['Cell Biology', 'Genetics', 'Ecology', 'Evolution', 'Plant Physiology', 'Animal Physiology', 'Microbiology', 'Biochemistry', 'Taxonomy', 'Biostatistics'],
+        '102': ['Molecular Biology', 'Immunology', 'Virology', 'Parasitology', 'Biotechnology', 'Developmental Biology', 'Human Anatomy', 'Plant Anatomy', 'Reproduction', 'Conservation Biology']
+    },
+    GST: {
+        '101': ['Use of English I', 'Communication Skills', 'Philosophy & Logic', 'Nigerian People & Culture', 'Citizenship Education', 'Entrepreneurship I', 'Computer Appreciation', 'History of Science', 'Peace Studies', 'Library Studies'],
+        '102': ['Use of English II', 'Writing Skills', 'Entrepreneurship II', 'Climate Change', 'Human Rights', 'Ethics', 'Leadership', 'Research Methods', 'Digital Literacy', 'Financial Literacy']
+    }
+};
+
+// ========== SAMPLE QUESTION BANK ==========
+// Format: 5 sample questions per topic. You will expand to 100
+const questionBank = {
+    Physics: {
+        '101': {
+            'Mechanics': [
+                {q: "What is the SI unit of Force?", a: "Newton", o: ["Joule", "Newton", "Watt", "Pascal"]},
+                {q: "Which of these is a vector quantity?", a: "Velocity", o: ["Mass", "Time", "Velocity", "Energy"]},
+                {q: "Acceleration due to gravity on Earth is approximately?", a: "9.8 m/s²", o: ["10 m/s²", "9.8 m/s²", "6.7 m/s²", "8.9 m/s²"]},
+                {q: "Work done is given by?", a: "Force x Distance", o: ["Mass x Velocity", "Force x Distance", "Energy/Time", "Pressure x Area"]},
+                {q: "Momentum is product of?", a: "Mass and Velocity", o: ["Force and Time", "Mass and Velocity", "Energy and Time", "Power and Distance"]}
+            ]
+        },
+        '102': {
+            'Magnetism': [
+                {q: "Magnetic field lines always?", a: "Form closed loops", o: ["Start and end", "Form closed loops", "Intersect", "Stay straight"]},
+                {q: "Unit of magnetic flux density is?", a: "Tesla", o: ["Weber", "Tesla", "Henry", "Ampere"]},
+                {q: "Which material is ferromagnetic?", a: "Iron", o: ["Copper", "Aluminum", "Iron", "Wood"]},
+                {q: "Fleming's Right Hand Rule is used for?", a: "Generators", o: ["Motors", "Generators", "Transformers", "Batteries"]},
+                {q: "Magnetic flux is measured in?", a: "Weber", o: ["Tesla", "Weber", "Ohm", "Volt"]}
+            ]
+        }
+    },
+    Chemistry: {'101': {'Atomic Structure': [{q: "Protons are _____ charged", a: "Positive", o: ["Negative", "Positive", "Neutral", "No charge"]}]}, '102': {'Organic Chemistry': [{q: "Alkanes have _____ bonds", a: "Single", o: ["Double", "Triple", "Single", "Ionic"]}]}},
+    Mathematics: {'101': {'Algebra': [{q: "2x + 3 = 7, x =?", a: "2", o: ["1", "2", "3", "4"]}]}, '102': {'Calculus': []}},
+    Biology: {'101': {'Cell Biology': []}, '102': {'Genetics': []}},
+    GST: {'101': {'Use of English': []}, '102': {'Nigerian People & Culture': []}}
+};
+
+// ========== JAVASCRIPT LOGIC ==========
+let currentQuestions = [];
+let currentQ = 0;
+let score = 0;
+
+function loadHome() {
+    const grid = document.getElementById('subjectGrid');
+    grid.innerHTML = '';
+    for(let subject in courseTopics) {
+        let card = `
+        <div class="subject-card">
+            <div class="subject-icon">${getIcon(subject)}</div>
+            <h3>${subject}</h3>
+            <button class="semester-btn" onclick="startQuiz('${subject}','101')">${subject.substring(0,3).toUpperCase()} 101</button>
+            <button class="semester-btn" onclick="startQuiz('${subject}','102')">${subject.substring(0,3).toUpperCase()} 102</button>
+            <div class="topic-list">
+                <h4>101 Topics:</h4><ul>${courseTopics[subject]['101'].map(t => `<li>• ${t}</li>`).join('')}</ul>
+                <h4>102 Topics:</h4><ul>${courseTopics[subject]['102'].map(t => `<li>• ${t}</li>`).join('')}</ul>
+            </div>
+        </div>`;
+        grid.innerHTML += card;
+    }
+}
+
+function getIcon(subject) {
+    const icons = {Physics: '⚛️', Chemistry: '🧪', Mathematics: '📐', Biology: '🧬', GST: '📚'};
+    return icons[subject];
+}
+
+function startQuiz(subject, semester) {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    document.getElementById('quizTitle').innerText = `${subject} ${semester}`;
+
+    let topics = courseTopics[subject][semester];
+    currentQuestions = [];
+    // For now we combine all sample questions. You will add 10 per topic to reach 100
+    topics.forEach(topic => {
+        if(questionBank[subject] && questionBank[subject][semester] && questionBank[subject][semester][topic]) {
+            currentQuestions = currentQuestions.concat(questionBank[subject][semester][topic]);
+        }
+    });
+
+    // If no questions yet, use dummy
+    if(currentQuestions.length < 5) {
+        currentQuestions = Array(100).fill().map((_,i) => ({
+            q: `Sample Question ${i+1}: What is 2+2?`,
+            a: "4",
+            o: ["3", "4", "5", "6"]
+        }));
+    }
+
+    currentQuestions = shuffleArray(currentQuestions).slice(0, 100);
+    currentQ = 0; score = 0;
+    loadQuestion();
+}
+
+function loadQuestion() {
+    if(currentQ >= 100) return showResult();
+
+    let q = currentQuestions[currentQ];
+    document.getElementById('qNum').innerText = currentQ + 1;
+    document.getElementById('questionText').innerText = q.q;
+    document.getElementById('progressBar').style.width = ((currentQ/100)*100) + '%';
+
+    let options = shuffleArray([...q.o]);
+    document.getElementById('optionsBox').innerHTML = '';
+    options.forEach(opt => {
+        let btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(btn, opt, q.a);
+        document.getElementById('optionsBox').appendChild(btn);
+    });
+}
+
+function checkAnswer(button, selected, correct) {
+    let buttons = document.querySelectorAll('.options button');
+    buttons.forEach(b => b.onclick = null);
+
+    if(selected === correct) {
+        button.classList.add('correct');
+        score++;
+    } else {
+        button.classList.add('wrong');
+        buttons.forEach(b => { if(b.innerText === correct) b.classList.add('correct'); });
+    }
+    document.getElementById('score').innerText = score;
+
+    setTimeout(() => { currentQ++; loadQuestion(); }, 1000);
+}
+
+function showResult() {
+    alert(`Quiz Complete! \nYour Score: ${score}/100 \nPercentage: ${score}%`);
+    goHome();
+}
+
+function shuffleArray(arr) { return arr.sort(() => Math.random() - 0.5); }
+function goHome() {
+    document.getElementById('home').style.display = 'block';
+    document.getElementById('quiz').style.display = 'none';
+}
+
+loadHome();
+</script>
+</body>
+</html>
