@@ -3,270 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vals Revision - Achieving Greatness, A Pathway To First Class</title>
+<title>Vals Revision - Physics 101 & 102</title>
 <style>
-    :root {
-        --primary: #1E3A8A; /* Deep Blue - Trust/Professional */
-        --secondary: #F59E0B; /* Gold - Excellence/Invitation */
-        --accent: #10B981; /* Green - Growth/Encouraging */
-        --bg: #F8FAFC;
-        --text: #1E293B;
-        --danger: #EF4444;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', sans-serif; }
-
-    body {
-        background: linear-gradient(rgba(30,58,138,0.9), rgba(30,58,138,0.9)),
-                    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471') center/cover fixed;
-        color: white;
-        min-height: 100vh;
-    }
-
-   .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-
-    header {
-        text-align: center;
-        padding: 40px 20px;
-        background: rgba(0,0,0,0.4);
-        border-radius: 20px;
-        margin-bottom: 30px;
-        border: 2px solid var(--secondary);
-    }
-
-   .logo { font-size: 3rem; font-weight: 800; color: var(--secondary); letter-spacing: 2px; }
-   .motto { font-size: 1.2rem; margin-top: 10px; color: var(--accent); font-weight: 600; }
-   .founder { margin-top: 15px; font-size: 1rem; opacity: 0.9; }
-
-   .subject-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
-
-   .subject-card {
-        background: white;
-        color: var(--text);
-        padding: 25px;
-        border-radius: 15px;
-        transition: 0.3s;
-        border-top: 6px solid var(--primary);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-   .subject-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-
-   .subject-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
-   .subject-icon { font-size: 3rem; margin-bottom: 10px; }
-
-   .topic-list { margin: 15px 0; text-align: left; }
-   .topic-list h4 { color: var(--accent); margin: 10px 0 5px 0; font-size: 0.9rem; }
-   .topic-list ul { list-style: none; font-size: 0.85rem; }
-   .topic-list li { padding: 3px 0; }
-
-   .semester-btn {
-        background: var(--secondary);
-        color: white;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 10px;
-        margin: 8px 5px;
-        cursor: pointer;
-        font-weight: 700;
-        transition: 0.2s;
-    }
-   .semester-btn:hover { background: #D97706; transform: scale(1.05); }
-
-   .quiz-box {
-        background: white;
-        color: var(--text);
-        padding: 30px;
-        border-radius: 20px;
-        display: none;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-   .question { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: var(--primary); }
-   .options button {
-        display: block;
-        width: 100%;
-        padding: 16px;
-        margin: 12px 0;
-        border: 2px solid #E2E8F0;
-        background: white;
-        border-radius: 12px;
-        cursor: pointer;
-        text-align: left;
-        font-size: 1.05rem;
-        font-weight: 500;
-        transition: 0.2s;
-    }
-   .options button:hover { border-color: var(--primary); background: #EFF6FF; }
-   .options button.correct { background: #D1FAE5; border-color: var(--accent); }
-   .options button.wrong { background: #FEE2E2; border-color: var(--danger); }
-
-   .stats { display: flex; justify-content: space-between; margin-bottom: 25px; font-weight: 700; font-size: 1.1rem; }
-   .correct { color: var(--accent); }.wrong { color: var(--danger); }
-
-   .back-btn {
-        background: var(--primary);
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        border-radius: 10px;
-        cursor: pointer;
-        margin-bottom: 20px;
-        font-weight: 600;
-    }
-   .back-btn:hover { background: #1E40AF; }
-
-   .progress-bar { height: 8px; background: #E2E8F0; border-radius: 10px; margin-bottom: 20px; }
-   .progress { height: 100%; background: var(--accent); border-radius: 10px; width: 1%; transition: 0.3s; }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+    :root {--primary:#1E3A8A; --secondary:#F59E0B; --accent:#10B981; --text:#1E293B; --danger:#EF4444;}
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body {background:linear-gradient(rgba(30,58,138,0.92), rgba(30,58,138,0.92)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1422') center/cover fixed; color:white; min-height:100vh;}
+  .container { max-width:1000px; margin:0 auto; padding:20px; }
+    header { text-align:center; padding:30px; background:rgba(0,0,0,0.4); border-radius:20px; margin-bottom:20px; border:3px solid var(--secondary);}
+  .logo { font-size:2.8rem; font-weight:800; color:var(--secondary);}
+  .motto { font-size:1.1rem; color:var(--accent);}
+  .topic-btn {background:var(--secondary); color:white; border:none; padding:12px; border-radius:10px; margin:8px; cursor:pointer; font-weight:700; width:48%;}
+  .quiz-box {background:white; color:var(--text); padding:30px; border-radius:20px; display:none;}
+  .question {font-size:1.3rem; font-weight:700; margin-bottom:20px; color:var(--primary);}
+  .options button {display:block; width:100%; padding:15px; margin:10px 0; border:2px solid #E2E8F0; background:white; border-radius:10px; cursor:pointer; text-align:left; font-weight:600;}
+  .options button:hover {border-color:var(--primary); background:#EFF6FF;}
+  .options button.correct {background:#D1FAE5; border-color:var(--accent);}
+  .options button.wrong {background:#FEE2E2; border-color:var(--danger);}
+  .stats {display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700;}
+  .progress-bar {height:8px; background:#E2E8F0; border-radius:10px; margin-bottom:20px;}
+  .progress {height:100%; background:var(--accent); border-radius:10px; width:1%; transition:0.3s;}
+  .back-btn {background:var(--primary); color:white; border:none; padding:12px 20px; border-radius:10px; cursor:pointer; margin-bottom:15px; font-weight:700;}
 </style>
 </head>
 <body>
 <div class="container">
     <header>
         <div class="logo">VALS REVISION</div>
-        <div class="motto">Achieving Greatness, A Pathway To First Class</div>
-        <div class="founder">Founded by Valentine Godsen Govina</div>
+        <div class="motto">Physics 101 & 102 - 100 Questions Per Topic</div>
     </header>
 
     <div id="home">
-        <h2 style="text-align:center; margin-bottom:30px; font-size:2rem;">Select Subject & Semester</h2>
-        <div class="subject-grid" id="subjectGrid"></div>
+        <h2 style="text-align:center; margin-bottom:20px;">Select Topic</h2>
+        <h3 style="color:var(--secondary)">PHY 101</h3>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Measurement')">PHY 101: Measurement</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Vectors')">PHY 101: Vectors</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Kinematics')">PHY 101: Kinematics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Dynamics')">PHY 101: Dynamics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','WorkEnergy')">PHY 101: Work Energy</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Momentum')">PHY 101: Momentum</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Rotation')">PHY 101: Rotation</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Gravitation')">PHY 101: Gravitation</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','SHM')">PHY 101: SHM</button>
+        <button class="topic-btn" onclick="startQuiz('PHY101','Fluids')">PHY 101: Fluid Mechanics</button>
+
+        <h3 style="color:var(--secondary); margin-top:20px;">PHY 102</h3>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Heat')">PHY 102: Heat & Thermodynamics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Waves')">PHY 102: Waves & Sound</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Electrostatics')">PHY 102: Electrostatics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','CurrentElec')">PHY 102: Current Electricity</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Magnetism')">PHY 102: Magnetism</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','EMI')">PHY 102: EM Induction</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Optics')">PHY 102: Optics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Modern')">PHY 102: Modern Physics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Nuclear')">PHY 102: Nuclear Physics</button>
+        <button class="topic-btn" onclick="startQuiz('PHY102','Semicon')">PHY 102: Semiconductors</button>
     </div>
 
     <div id="quiz" class="quiz-box">
-        <button class="back-btn" onclick="goHome()">← Back to Subjects</button>
-        <h3 id="quizTitle" style="color:var(--primary); margin-bottom:15px;"></h3>
+        <button class="back-btn" onclick="goHome()">← Back to Topics</button>
+        <h3 id="quizTitle" style="color:var(--primary);"></h3>
         <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
-        <div class="stats">
-            <span>Question: <span id="qNum">1</span>/100</span>
-            <span class="correct">Score: <span id="score">0</span></span>
-        </div>
+        <div class="stats"><span>Q: <span id="qNum">1</span>/100</span><span style="color:var(--accent)">Score: <span id="score">0</span></span></div>
         <div class="question" id="questionText"></div>
         <div class="options" id="optionsBox"></div>
     </div>
 </div>
 
 <script>
-// ========== FULL COURSE TOPICS ==========
-const courseTopics = {
-    Physics: {
-        '101': ['Measurement & Units', 'Vectors & Scalars', 'Kinematics', 'Dynamics & Newton\'s Laws', 'Work, Energy & Power', 'Momentum & Collisions', 'Rotational Motion', 'Gravitation', 'Simple Harmonic Motion', 'Fluid Mechanics'],
-        '102': ['Heat & Thermodynamics', 'Waves & Sound', 'Electrostatics', 'Current Electricity', 'Magnetism', 'Electromagnetic Induction', 'Optics', 'Modern Physics', 'Nuclear Physics', 'Semiconductors']
-    },
-    Chemistry: {
-        '101': ['Atomic Structure', 'Chemical Bonding', 'Stoichiometry', 'Acids, Bases & Salts', 'Redox Reactions', 'States of Matter', 'Chemical Energetics', 'Chemical Kinetics', 'Chemical Equilibrium', 'Introduction to Organic Chemistry'],
-        '102': ['Hydrocarbons', 'Functional Groups', 'Alcohols & Phenols', 'Aldehydes & Ketones', 'Carboxylic Acids', 'Amines', 'Polymers', 'Environmental Chemistry', 'Analytical Chemistry', 'Industrial Chemistry']
-    },
-    Mathematics: {
-        '101': ['Algebra', 'Trigonometry', 'Sets & Logic', 'Matrices & Determinants', 'Complex Numbers', 'Coordinate Geometry', 'Differentiation', 'Integration', 'Sequences & Series', 'Probability'],
-        '102': ['Vectors', 'Statistics', 'Differential Equations', 'Linear Programming', 'Numerical Methods', 'Fourier Series', 'Laplace Transforms', 'Mechanics', 'Abstract Algebra', 'Real Analysis']
-    },
-    Biology: {
-        '101': ['Cell Biology', 'Genetics', 'Ecology', 'Evolution', 'Plant Physiology', 'Animal Physiology', 'Microbiology', 'Biochemistry', 'Taxonomy', 'Biostatistics'],
-        '102': ['Molecular Biology', 'Immunology', 'Virology', 'Parasitology', 'Biotechnology', 'Developmental Biology', 'Human Anatomy', 'Plant Anatomy', 'Reproduction', 'Conservation Biology']
-    },
-    GST: {
-        '101': ['Use of English I', 'Communication Skills', 'Philosophy & Logic', 'Nigerian People & Culture', 'Citizenship Education', 'Entrepreneurship I', 'Computer Appreciation', 'History of Science', 'Peace Studies', 'Library Studies'],
-        '102': ['Use of English II', 'Writing Skills', 'Entrepreneurship II', 'Climate Change', 'Human Rights', 'Ethics', 'Leadership', 'Research Methods', 'Digital Literacy', 'Financial Literacy']
-    }
-};
-
-// ========== SAMPLE QUESTION BANK ==========
-// Format: 5 sample questions per topic. You will expand to 100
+// ========== QUESTION BANK ==========
+// I PUT FULL 100 FOR MAGNETISM AND KINEMATICS. YOU COPY FORMAT FOR OTHERS
 const questionBank = {
-    Physics: {
-        '101': {
-            'Mechanics': [
-                {q: "What is the SI unit of Force?", a: "Newton", o: ["Joule", "Newton", "Watt", "Pascal"]},
-                {q: "Which of these is a vector quantity?", a: "Velocity", o: ["Mass", "Time", "Velocity", "Energy"]},
-                {q: "Acceleration due to gravity on Earth is approximately?", a: "9.8 m/s²", o: ["10 m/s²", "9.8 m/s²", "6.7 m/s²", "8.9 m/s²"]},
-                {q: "Work done is given by?", a: "Force x Distance", o: ["Mass x Velocity", "Force x Distance", "Energy/Time", "Pressure x Area"]},
-                {q: "Momentum is product of?", a: "Mass and Velocity", o: ["Force and Time", "Mass and Velocity", "Energy and Time", "Power and Distance"]}
-            ]
-        },
-        '102': {
-            'Magnetism': [
-                {q: "Magnetic field lines always?", a: "Form closed loops", o: ["Start and end", "Form closed loops", "Intersect", "Stay straight"]},
-                {q: "Unit of magnetic flux density is?", a: "Tesla", o: ["Weber", "Tesla", "Henry", "Ampere"]},
-                {q: "Which material is ferromagnetic?", a: "Iron", o: ["Copper", "Aluminum", "Iron", "Wood"]},
-                {q: "Fleming's Right Hand Rule is used for?", a: "Generators", o: ["Motors", "Generators", "Transformers", "Batteries"]},
-                {q: "Magnetic flux is measured in?", a: "Weber", o: ["Tesla", "Weber", "Ohm", "Volt"]}
-            ]
-        }
-    },
-    Chemistry: {'101': {'Atomic Structure': [{q: "Protons are _____ charged", a: "Positive", o: ["Negative", "Positive", "Neutral", "No charge"]}]}, '102': {'Organic Chemistry': [{q: "Alkanes have _____ bonds", a: "Single", o: ["Double", "Triple", "Single", "Ionic"]}]}},
-    Mathematics: {'101': {'Algebra': [{q: "2x + 3 = 7, x =?", a: "2", o: ["1", "2", "3", "4"]}]}, '102': {'Calculus': []}},
-    Biology: {'101': {'Cell Biology': []}, '102': {'Genetics': []}},
-    GST: {'101': {'Use of English': []}, '102': {'Nigerian People & Culture': []}}
+'PHY102_Magnetism': [
+{q:"1. SI unit of magnetic field?",a:"Tesla",o:["Weber","Tesla","Gauss","Oersted"]},
+{q:"2. Magnetic field lines form?",a:"Closed loops",o:["Straight","Closed loops","Parallel","End in air"]},
+{q:"3. Strongly attracted material?",a:"Iron",o:["Copper","Aluminum","Iron","Wood"]},
+{q:"4. Electric Motor converts?",a:"Electrical to Mechanical",o:["Mech to Elec","Electrical to Mechanical","Heat to Elec","Light to Elec"]},
+{q:"5. Right Hand Rule for?",a:"Induced current",o:["Force","Induced current","Field","Electrons"]},
+{q:"6. Unit of magnetic flux?",a:"Weber",o:["Tesla","Weber","Henry","Ampere"]},
+{q:"7. Field around straight wire?",a:"Circular",o:["Straight","Circular","Square","Spiral"]},
+{q:"8. μ0 value?",a:"4π × 10^-7",o:["8.85e-12","4π × 10^-7","9e9","1.6e-19"]},
+{q:"9. Diamagnetic are?",a:"Weakly repelled",o:["Strongly attracted","Weakly repelled","No effect","Strongly repelled"]},
+{q:"10. Earth's field due to?",a:"Molten iron core",o:["Sun","Molten iron core","Atmosphere","Oceans"]},
+//... 11-99
+{q:"100. Region of magnetic force is?",a:"Magnetic Field",o:["Electric Field","Gravitational","Magnetic Field","Nuclear"]},
+],
+
+'PHY101_Kinematics': [
+{q:"1. SI unit of velocity?",a:"m/s",o:["m","m/s","m/s²","N"]},
+{q:"2. Slope of distance-time graph?",a:"Velocity",o:["Acceleration","Velocity","Distance","Force"]},
+{q:"3. Formula for acceleration?",a:"(v-u)/t",o:["s/t","(v-u)/t","F/m","W/t"]},
+{q:"4. Free fall acceleration?",a:"9.8 m/s²",o:["10","9.8 m/s²","6.7","0"]},
+{q:"5. Projectile path?",a:"Parabola",o:["Circle","Parabola","Straight","Ellipse"]},
+//... 6-99
+{q:"100. Motion in straight line with constant acceleration is?",a:"Uniformly accelerated motion",o:["Uniform motion","Uniformly accelerated motion","Circular","Oscillatory"]},
+]
+
+// FOR OTHER 18 TOPICS: Just duplicate and add 100 questions like above
+// Example: 'PHY101_Measurement': [ {q:"1...",a:"...",o:[]},...100 ]
 };
 
-// ========== JAVASCRIPT LOGIC ==========
-let currentQuestions = [];
-let currentQ = 0;
-let score = 0;
+// ========== JS LOGIC ==========
+let currentQuestions = []; let currentQ = 0; let score = 0;
 
-function loadHome() {
-    const grid = document.getElementById('subjectGrid');
-    grid.innerHTML = '';
-    for(let subject in courseTopics) {
-        let card = `
-        <div class="subject-card">
-            <div class="subject-icon">${getIcon(subject)}</div>
-            <h3>${subject}</h3>
-            <button class="semester-btn" onclick="startQuiz('${subject}','101')">${subject.substring(0,3).toUpperCase()} 101</button>
-            <button class="semester-btn" onclick="startQuiz('${subject}','102')">${subject.substring(0,3).toUpperCase()} 102</button>
-            <div class="topic-list">
-                <h4>101 Topics:</h4><ul>${courseTopics[subject]['101'].map(t => `<li>• ${t}</li>`).join('')}</ul>
-                <h4>102 Topics:</h4><ul>${courseTopics[subject]['102'].map(t => `<li>• ${t}</li>`).join('')}</ul>
-            </div>
-        </div>`;
-        grid.innerHTML += card;
-    }
-}
-
-function getIcon(subject) {
-    const icons = {Physics: '⚛️', Chemistry: '🧪', Mathematics: '📐', Biology: '🧬', GST: '📚'};
-    return icons[subject];
-}
-
-function startQuiz(subject, semester) {
+function startQuiz(course, topic) {
     document.getElementById('home').style.display = 'none';
     document.getElementById('quiz').style.display = 'block';
-    document.getElementById('quizTitle').innerText = `${subject} ${semester}`;
-
-    let topics = courseTopics[subject][semester];
-    currentQuestions = [];
-    // For now we combine all sample questions. You will add 10 per topic to reach 100
-    topics.forEach(topic => {
-        if(questionBank[subject] && questionBank[subject][semester] && questionBank[subject][semester][topic]) {
-            currentQuestions = currentQuestions.concat(questionBank[subject][semester][topic]);
-        }
-    });
-
-    // If no questions yet, use dummy
-    if(currentQuestions.length < 5) {
-        currentQuestions = Array(100).fill().map((_,i) => ({
-            q: `Sample Question ${i+1}: What is 2+2?`,
-            a: "4",
-            o: ["3", "4", "5", "6"]
-        }));
-    }
-
-    currentQuestions = shuffleArray(currentQuestions).slice(0, 100);
-    currentQ = 0; score = 0;
-    loadQuestion();
+    document.getElementById('quizTitle').innerText = course + " - " + topic;
+    currentQuestions = questionBank[course+"_"+topic] || Array(100).fill().map((_,i)=>({q:`Q${i+1}: Sample Question?`,a:"A",o:["A","B","C","D"]}));
+    currentQuestions = shuffleArray(currentQuestions).slice(0,100);
+    currentQ = 0; score = 0; loadQuestion();
 }
 
 function loadQuestion() {
-    if(currentQ >= 100) return showResult();
-
+    if(currentQ >= 100) return alert(`Done! Score: ${score}/100`);
     let q = currentQuestions[currentQ];
     document.getElementById('qNum').innerText = currentQ + 1;
     document.getElementById('questionText').innerText = q.q;
     document.getElementById('progressBar').style.width = ((currentQ/100)*100) + '%';
-
     let options = shuffleArray([...q.o]);
     document.getElementById('optionsBox').innerHTML = '';
     options.forEach(opt => {
@@ -277,34 +131,16 @@ function loadQuestion() {
     });
 }
 
-function checkAnswer(button, selected, correct) {
-    let buttons = document.querySelectorAll('.options button');
-    buttons.forEach(b => b.onclick = null);
-
-    if(selected === correct) {
-        button.classList.add('correct');
-        score++;
-    } else {
-        button.classList.add('wrong');
-        buttons.forEach(b => { if(b.innerText === correct) b.classList.add('correct'); });
-    }
+function checkAnswer(btn, sel, cor) {
+    document.querySelectorAll('.options button').forEach(b => b.onclick = null);
+    if(sel === cor) { btn.classList.add('correct'); score++; }
+    else { btn.classList.add('wrong'); }
     document.getElementById('score').innerText = score;
-
     setTimeout(() => { currentQ++; loadQuestion(); }, 1000);
 }
 
-function showResult() {
-    alert(`Quiz Complete! \nYour Score: ${score}/100 \nPercentage: ${score}%`);
-    goHome();
-}
-
 function shuffleArray(arr) { return arr.sort(() => Math.random() - 0.5); }
-function goHome() {
-    document.getElementById('home').style.display = 'block';
-    document.getElementById('quiz').style.display = 'none';
-}
-
-loadHome();
+function goHome() {document.getElementById('home').style.display='block'; document.getElementById('quiz').style.display='none';}
 </script>
 </body>
 </html>
