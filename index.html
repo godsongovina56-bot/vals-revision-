@@ -3,144 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vals Revision - Physics 101 & 102</title>
+<title>Vals Revision - PHY102 Magnetism</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
     :root {--primary:#1E3A8A; --secondary:#F59E0B; --accent:#10B981; --text:#1E293B; --danger:#EF4444;}
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
     body {background:linear-gradient(rgba(30,58,138,0.92), rgba(30,58,138,0.92)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1422') center/cover fixed; color:white; min-height:100vh;}
-  .container { max-width:1000px; margin:0 auto; padding:20px; }
+ .container { max-width:900px; margin:0 auto; padding:20px; }
     header { text-align:center; padding:30px; background:rgba(0,0,0,0.4); border-radius:20px; margin-bottom:20px; border:3px solid var(--secondary);}
-  .logo { font-size:2.8rem; font-weight:800; color:var(--secondary);}
-  .motto { font-size:1.1rem; color:var(--accent);}
-  .topic-btn {background:var(--secondary); color:white; border:none; padding:12px; border-radius:10px; margin:8px; cursor:pointer; font-weight:700; width:48%;}
-  .quiz-box {background:white; color:var(--text); padding:30px; border-radius:20px; display:none;}
-  .question {font-size:1.3rem; font-weight:700; margin-bottom:20px; color:var(--primary);}
-  .options button {display:block; width:100%; padding:15px; margin:10px 0; border:2px solid #E2E8F0; background:white; border-radius:10px; cursor:pointer; text-align:left; font-weight:600;}
-  .options button:hover {border-color:var(--primary); background:#EFF6FF;}
-  .options button.correct {background:#D1FAE5; border-color:var(--accent);}
-  .options button.wrong {background:#FEE2E2; border-color:var(--danger);}
-  .stats {display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700;}
-  .progress-bar {height:8px; background:#E2E8F0; border-radius:10px; margin-bottom:20px;}
-  .progress {height:100%; background:var(--accent); border-radius:10px; width:1%; transition:0.3s;}
-  .back-btn {background:var(--primary); color:white; border:none; padding:12px 20px; border-radius:10px; cursor:pointer; margin-bottom:15px; font-weight:700;}
+ .logo { font-size:2.5rem; font-weight:800; color:var(--secondary);}
+ .motto { font-size:1.1rem; color:var(--accent);}
+ .quiz-box {background:white; color:var(--text); padding:30px; border-radius:20px;}
+ .question {font-size:1.3rem; font-weight:700; margin-bottom:20px; color:var(--primary);}
+ .options button {display:block; width:100%; padding:15px; margin:10px 0; border:2px solid #E2E8F0; background:white; border-radius:10px; cursor:pointer; text-align:left; font-weight:600; transition:0.2s;}
+ .options button:hover {border-color:var(--primary); background:#EFF6FF;}
+ .options button.selected {border-color:var(--primary); background:#DBEAFE;}
+ .options button.correct {background:#D1FAE5; border-color:var(--accent);}
+ .options button.wrong {background:#FEE2E2; border-color:var(--danger);}
+ .stats {display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700; font-size:1.1rem;}
+ .timer {color:var(--danger);}
+ .progress-bar {height:8px; background:#E2E8F0; border-radius:10px; margin-bottom:20px;}
+ .progress {height:100%; background:var(--accent); border-radius:10px; width:1%; transition:0.3s;}
+ .nav-btns {display:flex; justify-content:space-between; margin-top:20px;}
+ .nav-btn {background:var(--primary); color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-weight:700;}
+ .nav-btn:disabled {background:#94A3B8; cursor:not-allowed;}
+ .submit-btn {background:var(--accent); color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-weight:700;}
+ .timer-setup {text-align:center; margin-bottom:20px;}
+ .timer-setup input {padding:8px; width:60px; border-radius:5px; border:2px solid var(--primary);}
 </style>
 </head>
 <body>
 <div class="container">
     <header>
         <div class="logo">VALS REVISION</div>
-        <div class="motto">Physics 101 & 102 - 100 Questions Per Topic</div>
+        <div class="motto">PHY 102 - Magnetism: 100 Questions</div>
     </header>
 
-    <div id="home">
-        <h2 style="text-align:center; margin-bottom:20px;">Select Topic</h2>
-        <h3 style="color:var(--secondary)">PHY 101</h3>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Measurement')">PHY 101: Measurement</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Vectors')">PHY 101: Vectors</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Kinematics')">PHY 101: Kinematics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Dynamics')">PHY 101: Dynamics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','WorkEnergy')">PHY 101: Work Energy</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Momentum')">PHY 101: Momentum</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Rotation')">PHY 101: Rotation</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Gravitation')">PHY 101: Gravitation</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','SHM')">PHY 101: SHM</button>
-        <button class="topic-btn" onclick="startQuiz('PHY101','Fluids')">PHY 101: Fluid Mechanics</button>
-
-        <h3 style="color:var(--secondary); margin-top:20px;">PHY 102</h3>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Heat')">PHY 102: Heat & Thermodynamics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Waves')">PHY 102: Waves & Sound</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Electrostatics')">PHY 102: Electrostatics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','CurrentElec')">PHY 102: Current Electricity</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Magnetism')">PHY 102: Magnetism</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','EMI')">PHY 102: EM Induction</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Optics')">PHY 102: Optics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Modern')">PHY 102: Modern Physics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Nuclear')">PHY 102: Nuclear Physics</button>
-        <button class="topic-btn" onclick="startQuiz('PHY102','Semicon')">PHY 102: Semiconductors</button>
+    <div id="setup" class="quiz-box">
+        <h3 style="color:var(--primary); text-align:center;">Set Your Timer</h3>
+        <div class="timer-setup">
+            <p>How many minutes for this 100 questions?</p>
+            <input type="number" id="minutes" value="50" min="5">
+            <button class="submit-btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
     </div>
 
-    <div id="quiz" class="quiz-box">
-        <button class="back-btn" onclick="goHome()">← Back to Topics</button>
-        <h3 id="quizTitle" style="color:var(--primary);"></h3>
+    <div id="quiz" class="quiz-box" style="display:none;">
+        <div class="stats">
+            <span>Question: <span id="qNum">1</span>/100</span>
+            <span class="timer">Time: <span id="timer">50:00</span></span>
+        </div>
         <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
-        <div class="stats"><span>Q: <span id="qNum">1</span>/100</span><span style="color:var(--accent)">Score: <span id="score">0</span></span></div>
         <div class="question" id="questionText"></div>
         <div class="options" id="optionsBox"></div>
+        <div class="nav-btns">
+            <button class="nav-btn" id="prevBtn" onclick="prevQuestion()">← Previous</button>
+            <button class="submit-btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+        </div>
+    </div>
+
+    <div id="result" class="quiz-box" style="display:none;">
+        <h3 style="color:var(--primary); text-align:center;">Quiz Complete!</h3>
+        <h2 style="text-align:center; color:var(--accent); margin:20px 0;">Score: <span id="finalScore">0</span>/100</h2>
+        <button class="submit-btn" onclick="location.reload()" style="width:100%;">Restart</button>
     </div>
 </div>
 
 <script>
-// ========== QUESTION BANK ==========
-// I PUT FULL 100 FOR MAGNETISM AND KINEMATICS. YOU COPY FORMAT FOR OTHERS
-const questionBank = {
-'PHY102_Magnetism': [
-{q:"1. SI unit of magnetic field?",a:"Tesla",o:["Weber","Tesla","Gauss","Oersted"]},
-{q:"2. Magnetic field lines form?",a:"Closed loops",o:["Straight","Closed loops","Parallel","End in air"]},
-{q:"3. Strongly attracted material?",a:"Iron",o:["Copper","Aluminum","Iron","Wood"]},
-{q:"4. Electric Motor converts?",a:"Electrical to Mechanical",o:["Mech to Elec","Electrical to Mechanical","Heat to Elec","Light to Elec"]},
-{q:"5. Right Hand Rule for?",a:"Induced current",o:["Force","Induced current","Field","Electrons"]},
-{q:"6. Unit of magnetic flux?",a:"Weber",o:["Tesla","Weber","Henry","Ampere"]},
-{q:"7. Field around straight wire?",a:"Circular",o:["Straight","Circular","Square","Spiral"]},
-{q:"8. μ0 value?",a:"4π × 10^-7",o:["8.85e-12","4π × 10^-7","9e9","1.6e-19"]},
-{q:"9. Diamagnetic are?",a:"Weakly repelled",o:["Strongly attracted","Weakly repelled","No effect","Strongly repelled"]},
-{q:"10. Earth's field due to?",a:"Molten iron core",o:["Sun","Molten iron core","Atmosphere","Oceans"]},
-//... 11-99
-{q:"100. Region of magnetic force is?",a:"Magnetic Field",o:["Electric Field","Gravitational","Magnetic Field","Nuclear"]},
-],
+// ========== 100 PHYSICS 102 MAGNETISM QUESTIONS ==========
+const currentQuestions = [
+{q:"1. What is the SI unit of magnetic field strength?",a:"Tesla",o:["Weber","Tesla","Gauss","Oersted"]},
+{q:"2. Magnetic field lines always form?",a:"Closed loops",o:["Straight lines","Closed loops","Parallel lines","Lines that end in space"]},
+{q:"3. Which material is strongly attracted to a magnet?",a:"Iron",o:["Copper","Aluminum","Iron","Plastic"]},
+{q:"4. The device that converts electrical energy to mechanical energy is?",a:"Electric Motor",o:["Generator","Electric Motor","Transformer","Battery"]},
+{q:"5. Fleming's Right Hand Rule is used to determine?",a:"Direction of induced current",o:["Direction of force","Direction of induced current","Direction of magnetic field","Direction of electrons"]},
+{q:"6. Unit of magnetic flux is?",a:"Weber",o:["Tesla","Weber","Henry","Ampere"]},
+{q:"7. Magnetic field around a straight current-carrying wire is?",a:"Circular",o:["Straight","Circular","Square","Elliptical"]},
+{q:"8. Permeability of free space μ0 =?",a:"4π × 10^-7 H/m",o:["8.85 × 10^-12","4π × 10^-7 H/m","9 × 10^9","1.6 × 10^-19"]},
+{q:"9. Diamagnetic materials are?",a:"Weakly repelled by magnet",o:["Strongly attracted","Weakly repelled by magnet","Not affected","Strongly repelled"]},
+{q:"10. Earth's magnetic field is mainly due to?",a:"Molten iron in outer core",o:["Sun","Molten iron in outer core","Atmosphere","Ocean currents"]},
+{q:"11. A moving charge experiences force in magnetic field called?",a:"Lorentz Force",o:["Gravitational Force","Lorentz Force","Coulomb Force","Frictional Force"]},
+{q:"12. The north pole of a magnet points towards?",a:"Earth's Magnetic South",o:["Earth's Geographic North","Earth's Magnetic South","East","West"]},
+{q:"13. Soft iron is used for electromagnets because?",a:"High permeability, low retentivity",o:["It is cheap","High permeability, low retentivity","It is very strong","It does not rust"]},
+{q:"14. Transformer works on principle of?",a:"Mutual Induction",o:["Self Induction","Mutual Induction","Coulomb's Law","Ohm's Law"]},
+{q:"15. Magnetic susceptibility of diamagnetic material is?",a:"Negative and small",o:["Positive and large","Negative and small","Zero","Infinite"]},
+{q:"16. Force on current-carrying conductor in B-field?",a:"F = BILsinθ",o:["F = ma","F = BILsinθ","F = qvB","F = kx"]},
+{q:"17. MRI machines use?",a:"Strong magnetic fields",o:["X-rays","Strong magnetic fields","Ultrasound","Radio waves"]},
+{q:"18. Magnetic domain theory explains?",a:"Ferromagnetism",o:["Diamagnetism","Paramagnetism","Ferromagnetism","Gravitation"]},
+{q:"19. Unit of magnetic flux density?",a:"Tesla",o:["Weber/m²","Tesla","Ampere-turn","Gauss"]},
+{q:"20. Magnetic field inside a solenoid is?",a:"Uniform",o:["Zero","Non-uniform","Uniform","Circular"]},
+{q:"21. Curie temperature is when?",a:"Ferromagnetic becomes paramagnetic",o:["Metal melts","Ferromagnetic becomes paramagnetic","Conductor becomes insulator","Gas liquefies"]},
+{q:"22. Hall effect measures?",a:"Magnetic field & carrier concentration",o:["Voltage","Magnetic field & carrier concentration","Current","Resistance"]},
+{q:"23. Eddy currents cause?",a:"Heating and energy loss",o:["Cooling","Heating and energy loss","Magnetization","Ionization"]},
+{q:"24. Magnetic moment of current loop?",a:"NIA",o:["BIL","NIA","qVB","μ0NI"]},
+{q:"25. Paramagnetic materials have?",a:"Positive small susceptibility",o:["Negative susceptibility","Positive small susceptibility","Zero","Infinite"]},
+{q:"26. Magnetic field due to long straight wire?",a:"B = μ0I/2πr",o:["B = μ0nI","B = μ0I/2πr","B = μ0NI/L","B = qvB"]},
+{q:"27. Which is not a magnetic material?",a:"Bismuth",o:["Nickel","Cobalt","Iron","Bismuth"]},
+{q:"28. The magnetic field inside a toroid is?",a:"Confined within the toroid",o:["Zero","Uniform everywhere","Confined within the toroid","Radial"]},
+{q:"29. Force between two parallel current wires?",a:"Attractive if currents same direction",o:["Always repulsive","Attractive if currents same direction","Zero","Depends on voltage"]},
+{q:"30. Magnetic dipole moment unit?",a:"A m²",o:["J/T","A m²","N/A","Wb"]},
+{q:"31. Magnetization is?",a:"Magnetic moment per unit volume",o:["Flux per area","Magnetic moment per unit volume","Force per charge","Current per area"]},
+{q:"32. Hysteresis loop area represents?",a:"Energy loss per cycle",o:["Magnetic energy","Energy loss per cycle","Flux","Inductance"]},
+{q:"33. Lenz's Law states?",a:"Induced current opposes change",o:["Current flows with field","Induced current opposes change","Flux is constant","Voltage is induced"]},
+{q:"34. Self inductance unit?",a:"Henry",o:["Tesla","Henry","Weber","Farad"]},
+{q:"35. Magnetic field at center of circular coil?",a:"B = μ0NI/2R",o:["μ0I/2πr","μ0NI/2R","μ0nI","BIL"]},
+{q:"36. A magnetic monopole?",a:"Has not been observed",o:["Exists in magnets","Has not been observed","Is north pole","Is south pole"]},
+{q:"37. Which has highest permeability?",a:"Mu-metal",o:["Air","Copper","Mu-metal","Wood"]},
+{q:"38. Magnetic shielding uses?",a:"High permeability material",o:["Conductor","High permeability material","Insulator","Magnet"]},
+{q:"39. Cyclotron uses?",a:"Magnetic field to accelerate charges",o:["Electric field only","Magnetic field to accelerate charges","Gravity","Laser"]},
+{q:"40. Force on moving charge: F =?",a:"q(v × B)",o:["qE","q(v × B)","BIL","ma"]},
+{q:"41. Magnetic flux through area?",a:"Φ = BAcosθ",o:["BA","BAcosθ","BIL","qvB"]},
+{q:"42. Electromagnets are used in?",a:"Cranes and relays",o:["Compass","Cranes and relays","Solar panels","Thermometer"]},
+{q:"43. Magnetic saturation occurs when?",a:"All domains aligned",o:["Field is zero","All domains aligned","Material melts","Current stops"]},
+{q:"44. Bohr magneton is unit of?",a:"Magnetic moment",o:["Field","Magnetic moment","Flux","Inductance"]},
+{q:"45. Ferrites are?",a:"Ceramic magnetic materials",o:["Metals","Ceramic magnetic materials","Gases","Liquids"]},
+{q:"46. Magnetic declination is?",a:"Angle between true and magnetic north",o:["Dip angle","Angle between true and magnetic north","Field strength","Flux"]},
+{q:"47. Magnetic inclination or dip is?",a:"Angle field makes with horizontal",o:["Declination","Angle field makes with horizontal","Strength","Direction"]},
+{q:"48. Superconductors expel magnetic field?",a:"Meissner effect",o:["Hall effect","Meissner effect","Zeeman effect","Photoelectric"]},
+{q:"49. Magnetic bottle is used for?",a:"Plasma confinement",o:["Storing magnets","Plasma confinement","Measuring field","Cooling"]},
+{q:"50. Van de Graaff generator uses?",a:"Electrostatics not magnetism",o:["Magnetism","Electrostatics not magnetism","Induction","Conduction"]},
+{q:"51. Magnetic Reynolds number relates?",a:"Advection to diffusion of B-field",o:["Force to mass","Advection to diffusion of B-field","Energy to work","Current to voltage"]},
+{q:"52. Geomagnetic storm is caused by?",a:"Solar wind",o:["Earthquakes","Solar wind","Lightning","Tides"]},
+{q:"53. Magnetostriction is?",a:"Change in shape due to magnetization",o:["Change in resistance","Change in shape due to magnetization","Change in color","Change in temperature"]},
+{q:"54. Barkhausen effect is due to?",a:"Domain wall motion",o:["Electron spin","Domain wall motion","Nuclear spin","Thermal motion"]},
+{q:"55. Magnetic anomaly refers to?",a:"Local variation in Earth's field",o:["Strong magnet","Local variation in Earth's field","Zero field","Uniform field"]},
+{q:"56. Paleomagnetism studies?",a:"Rock magnetization history",o:["Ancient magnets","Rock magnetization history","Sun's field","Moon's field"]},
+{q:"57. Magnetic compass deviation is caused by?",a:"Local magnetic materials",o:["Wind","Local magnetic materials","Temperature","Humidity"]},
+{q:"58. Gyromagnetic ratio relates?",a:"Magnetic moment to angular momentum",o:["Charge to mass","Magnetic moment to angular momentum","Energy to time","Force to area"]},
+{q:"59. Nuclear magnetic resonance uses?",a:"Radio waves + magnetic field",o:["X-rays","Radio waves + magnetic field","Light","Sound"]},
+{q:"60. Electron spin magnetic moment?",a:"~9.27 × 10^-24 J/T",o:["1.6e-19","~9.27 × 10^-24 J/T","9.8","3e8"]},
+{q:"61. Magnetic mirror reflects?",a:"Charged particles",o:["Light","Charged particles","Sound","Heat"]},
+{q:"62. Magnetic reconnection occurs in?",a:"Solar flares",o:["Batteries","Solar flares","Motors","Generators"]},
+{q:"63. Dynamo theory explains?",a:"Planetary magnetic fields",o:["Electric motors","Planetary magnetic fields","Generators","Transformers"]},
+{q:"64. Magnetic viscosity is?",a:"Time-dependent magnetization",o:["Fluid property","Time-dependent magnetization","Resistance","Inductance"]},
+{q:"65. Spin valve uses?",a:"Giant magnetoresistance",o:["Hall effect","Giant magnetoresistance","Photo effect","Thermo effect"]},
+{q:"66. Magnetic tape stores data by?",a:"Magnetic domains",o:["Electric charge","Magnetic domains","Light","Heat"]},
+{q:"67. Hard disk uses?",a:"Perpendicular recording",o:["Optical","Perpendicular recording","Mechanical","Chemical"]},
+{q:"68. Magnetic levitation uses?",a:"Repulsive magnetic forces",o:["Gravity","Repulsive magnetic forces","Air pressure","Vacuum"]},
+{q:"69. SQUID measures?",a:"Very weak magnetic fields",o:["Current","Very weak magnetic fields","Voltage","Resistance"]},
+{q:"70. Magnetocaloric effect is?",a:"Temp change with magnetic field",o:["Pressure change","Temp change with magnetic field","Volume change","Color change"]},
+{q:"71. Alnico magnets contain?",a:"Aluminum, Nickel, Cobalt",o:["Iron, Copper","Aluminum, Nickel, Cobalt","Steel","Plastic"]},
+{q:"72. Neodymium magnets are?",a:"Rare earth magnets",o:["Ceramic","Rare earth magnets","Carbon","Silicon"]},
+{q:"73. Magnetic hysteresis is?",a:"Lag of B behind H",o:["Current lag","Lag of B behind H","Voltage lag","Flux lag"]},
+{q:"74. Coercivity is?",a:"Field to demagnetize material",o:["Magnetization","Field to demagnetize material","Permeability","Susceptibility"]},
+{q:"75. Remanence is?",a:"Residual magnetization",o:["Initial magnetization","Residual magnetization","Saturation","Coercivity"]},
+{q:"76. Magnetic circuit law: mmf =?",a:"NI",o:["BIL","NI","V/R","qV"]},
+{q:"77. Reluctance is analogous to?",a:"Resistance",o:["Capacitance","Resistance","Inductance","Conductance"]},
+{q:"78. Magnetic flux density in air gap?",a:"B = μ0H",o:["B = μH","B = μ0H","B = NI","B = ΦA"]},
+{q:"79. Eddy current brake uses?",a:"Magnetic damping",o:["Friction","Magnetic damping","Air resistance","Hydraulics"]},
+{q:"80. Magnetic amplifier uses?",a:"Saturable reactor",o:["Transistor","Saturable reactor","Diode","Capacitor"]},
+{q:"81. Magnetometer measures?",a:"Magnetic field strength",o:["Current","Magnetic field strength","Voltage","Power"]},
+{q:"82. Gauss meter is a type of?",a:"Magnetometer",o:["Voltmeter","Magnetometer","Ammeter","Ohmmeter"]},
+{q:"83. Magnetic field from dipole at axis?",a:"B = μ0/4π * 2M/r³",o:["μ0M/2πr","μ0/4π * 2M/r³","μ0NI","BIL"]},
+{q:"84. Magnetic potential?",a:"Scalar for current-free region",o:["Vector always","Scalar for current-free region","Does not exist","Always zero"]},
+{q:"85. Biot-Savart law gives?",a:"Field due to current element",o:["Force","Field due to current element","Flux","Inductance"]},
+{q:"86. Ampere's law: ∮B·dl =?",a:"μ0I_enclosed",o:["0","μ0I_enclosed","ε0","q/ε0"]},
+{q:"87. Faraday's law: emf =?",a:"-dΦ/dt",o:["IR","-dΦ/dt","qvB","BIL"]},
+{q:"88. Maxwell's 4th equation?",a:"∇×B = μ0J + μ0ε0 dE/dt",o:["∇·E=ρ/ε0","∇×B = μ0J + μ0ε0 dE/dt","∇·B=0","∇×E=-dB/dt"]},
+{q:"89. Magnetic pressure?",a:"B²/2μ0",o:["ρv²","B²/2μ0","PV","F/A"]},
+{q:"90. Alfvén speed?",a:"B/√(μ0ρ)",o:["E/B","B/√(μ0ρ)","√(gL)","c/n"]},
+{q:"91. Magnetic helicity?",a:"∫A·B dV",o:["∫E·B","∫A·B dV","∫B²","∫J·E"]},
+{q:"92. Magnetic reconnection rate?",a:"Depends on resistivity",o:["Constant","Depends on resistivity","Zero","Infinite"]},
+{q:"93. Magnetic island?",a:"Flux tube in plasma",o:["Land mass","Flux tube in plasma","Star","Galaxy"]},
+{q:"94. Magnetosheath?",a:"Region behind bow shock",o:["Inside magnetosphere","Region behind bow shock","Solar surface","Earth core"]},
+{q:"95. Radiation belt?",a:"Trapped charged particles",o:["Ozone layer","Trapped charged particles","Clouds","Atmosphere"]},
+{q:"96. Magnetic storm Dst index?",a:"Measures ring current",o:["Solar wind","Measures ring current","Temperature","Pressure"]},
+{q:"97. Substorm?",a:"Magnetospheric energy release",o:["Earthquake","Magnetospheric energy release","Volcano","Tornado"]},
+{q:"98. Magnetic field line reconnection?",a:"Changes topology",o:["Increases length","Changes topology","Creates matter","Destroys energy"]},
+{q:"99. Frozen-in flux theorem?",a:"Field lines move with plasma",o:["Field is static","Field lines move with plasma","Flux is zero","B=0"]},
+{q:"100. Region where magnetic force acts?",a:"Magnetic Field",o:["Electric Field","Gravitational Field","Magnetic Field","Nuclear Field"]}
+];
 
-'PHY101_Kinematics': [
-{q:"1. SI unit of velocity?",a:"m/s",o:["m","m/s","m/s²","N"]},
-{q:"2. Slope of distance-time graph?",a:"Velocity",o:["Acceleration","Velocity","Distance","Force"]},
-{q:"3. Formula for acceleration?",a:"(v-u)/t",o:["s/t","(v-u)/t","F/m","W/t"]},
-{q:"4. Free fall acceleration?",a:"9.8 m/s²",o:["10","9.8 m/s²","6.7","0"]},
-{q:"5. Projectile path?",a:"Parabola",o:["Circle","Parabola","Straight","Ellipse"]},
-//... 6-99
-{q:"100. Motion in straight line with constant acceleration is?",a:"Uniformly accelerated motion",o:["Uniform motion","Uniformly accelerated motion","Circular","Oscillatory"]},
-]
+let currentQ = 0;
+let userAnswers = Array(100).fill(null);
+let timeLeft = 50 * 60; // 50 minutes default
+let timerInterval;
 
-// FOR OTHER 18 TOPICS: Just duplicate and add 100 questions like above
-// Example: 'PHY101_Measurement': [ {q:"1...",a:"...",o:[]},...100 ]
-};
-
-// ========== JS LOGIC ==========
-let currentQuestions = []; let currentQ = 0; let score = 0;
-
-function startQuiz(course, topic) {
-    document.getElementById('home').style.display = 'none';
+function startQuiz() {
+    let mins = parseInt(document.getElementById('minutes').value);
+    timeLeft = mins * 60;
+    document.getElementById('setup').style.display = 'none';
     document.getElementById('quiz').style.display = 'block';
-    document.getElementById('quizTitle').innerText = course + " - " + topic;
-    currentQuestions = questionBank[course+"_"+topic] || Array(100).fill().map((_,i)=>({q:`Q${i+1}: Sample Question?`,a:"A",o:["A","B","C","D"]}));
-    currentQuestions = shuffleArray(currentQuestions).slice(0,100);
-    currentQ = 0; score = 0; loadQuestion();
+    loadQuestion();
+    startTimer();
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let m = Math.floor(timeLeft/60);
+        let s = timeLeft%60;
+        document.getElementById('timer').innerText = `${m}:${s<10?'0':''}${s}`;
+        if(timeLeft <= 0) submitQuiz();
+    }, 1000);
 }
 
 function loadQuestion() {
-    if(currentQ >= 100) return alert(`Done! Score: ${score}/100`);
     let q = currentQuestions[currentQ];
     document.getElementById('qNum').innerText = currentQ + 1;
     document.getElementById('questionText').innerText = q.q;
     document.getElementById('progressBar').style.width = ((currentQ/100)*100) + '%';
-    let options = shuffleArray([...q.o]);
+
+    document.getElementById('prevBtn').disabled = currentQ === 0;
+    document.getElementById('nextBtn').innerText = currentQ === 99? 'Submit' : 'Next →';
+
+    let options = q.o;
     document.getElementById('optionsBox').innerHTML = '';
     options.forEach(opt => {
         let btn = document.createElement('button');
         btn.innerText = opt;
-        btn.onclick = () => checkAnswer(btn, opt, q.a);
+        if(userAnswers[currentQ] === opt) btn.classList.add('selected');
+        btn.onclick = () => { userAnswers[currentQ] = opt; loadQuestion(); }
         document.getElementById('optionsBox').appendChild(btn);
     });
 }
 
-function checkAnswer(btn, sel, cor) {
-    document.querySelectorAll('.options button').forEach(b => b.onclick = null);
-    if(sel === cor) { btn.classList.add('correct'); score++; }
-    else { btn.classList.add('wrong'); }
-    document.getElementById('score').innerText = score;
-    setTimeout(() => { currentQ++; loadQuestion(); }, 1000);
+function nextQuestion() {
+    if(currentQ < 99) { currentQ++; loadQuestion(); }
+    else { submitQuiz(); }
 }
 
-function shuffleArray(arr) { return arr.sort(() => Math.random() - 0.5); }
-function goHome() {document.getElementById('home').style.display='block'; document.getElementById('quiz').style.display='none';}
+function prevQuestion() {
+    if(currentQ > 0) { currentQ--; loadQuestion(); }
+}
+
+function submitQuiz() {
+    clearInterval(timerInterval);
+    let score = 0;
+    currentQuestions.forEach((q,i) => { if(userAnswers[i] === q.a) score++; });
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('finalScore').innerText = score;
+}
 </script>
 </body>
 </html>
