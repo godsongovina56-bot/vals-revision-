@@ -3,47 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vals Revision - PHY102 Magnetism</title>
+<title>Vals Revision - Taraba State University</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
     :root {--primary:#1E3A8A; --secondary:#F59E0B; --accent:#10B981; --text:#1E293B; --danger:#EF4444;}
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body {background:linear-gradient(rgba(30,58,138,0.92), rgba(30,58,138,0.92)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1422') center/cover fixed; color:white; min-height:100vh;}
- .container { max-width:900px; margin:0 auto; padding:20px; }
-    header { text-align:center; padding:30px; background:rgba(0,0,0,0.4); border-radius:20px; margin-bottom:20px; border:3px solid var(--secondary);}
- .logo { font-size:2.5rem; font-weight:800; color:var(--secondary);}
- .motto { font-size:1.1rem; color:var(--accent);}
- .quiz-box {background:white; color:var(--text); padding:30px; border-radius:20px;}
- .question {font-size:1.3rem; font-weight:700; margin-bottom:20px; color:var(--primary);}
- .options button {display:block; width:100%; padding:15px; margin:10px 0; border:2px solid #E2E8F0; background:white; border-radius:10px; cursor:pointer; text-align:left; font-weight:600; transition:0.2s;}
- .options button:hover {border-color:var(--primary); background:#EFF6FF;}
- .options button.selected {border-color:var(--primary); background:#DBEAFE;}
- .options button.correct {background:#D1FAE5; border-color:var(--accent);}
- .options button.wrong {background:#FEE2E2; border-color:var(--danger);}
- .stats {display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700; font-size:1.1rem;}
- .timer {color:var(--danger);}
- .progress-bar {height:8px; background:#E2E8F0; border-radius:10px; margin-bottom:20px;}
- .progress {height:100%; background:var(--accent); border-radius:10px; width:1%; transition:0.3s;}
- .nav-btns {display:flex; justify-content:space-between; margin-top:20px;}
- .nav-btn {background:var(--primary); color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-weight:700;}
- .nav-btn:disabled {background:#94A3B8; cursor:not-allowed;}
- .submit-btn {background:var(--accent); color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-weight:700;}
- .timer-setup {text-align:center; margin-bottom:20px;}
- .timer-setup input {padding:8px; width:60px; border-radius:5px; border:2px solid var(--primary);}
+    body {
+        background: linear-gradient(rgba(30,58,138,0.88), rgba(30,58,138,0.88)),
+                    url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470') center/cover fixed;
+        color:white; min-height:100vh;
+    }
+.container { max-width:950px; margin:0 auto; padding:20px; }
+
+    header {
+        text-align:center; padding:35px 20px;
+        background:rgba(0,0,0,0.5); border-radius:20px; margin-bottom:25px;
+        border:3px solid var(--secondary); backdrop-filter: blur(5px);
+    }
+.logo { font-size:3rem; font-weight:800; color:var(--secondary); letter-spacing:2px;}
+.motto { font-size:1.2rem; color:var(--accent); font-weight:600; margin-top:5px;}
+.founder { font-size:1rem; margin-top:10px; opacity:0.9;}
+.tsu { font-size:0.95rem; margin-top:8px; background:var(--primary); padding:8px; border-radius:8px; display:inline-block;}
+
+.quiz-box {background:white; color:var(--text); padding:35px; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.3);}
+.question {font-size:1.4rem; font-weight:700; margin-bottom:20px; color:var(--primary); line-height:1.6;}
+.options button {display:block; width:100%; padding:16px; margin:12px 0; border:3px solid #E2E8F0; background:white; border-radius:12px; cursor:pointer; text-align:left; font-weight:600; font-size:1.05rem; transition:0.2s;}
+.options button:hover {border-color:var(--primary); background:#EFF6FF; transform:translateX(5px);}
+.options button.selected {border-color:var(--secondary); background:#FEF3C7;}
+.options button.correct {background:#D1FAE5; border-color:var(--accent);}
+.options button.wrong {background:#FEE2E2; border-color:var(--danger);}
+
+.stats {display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700; font-size:1.1rem;}
+.timer {color:var(--danger);}
+.progress-bar {height:10px; background:#E2E8F0; border-radius:10px; margin-bottom:20px; overflow:hidden;}
+.progress {height:100%; background:var(--accent); border-radius:10px; width:1%; transition:0.4s;}
+
+.nav-btns {display:flex; justify-content:space-between; margin-top:25px;}
+.nav-btn {background:var(--primary); color:white; border:none; padding:14px 30px; border-radius:12px; cursor:pointer; font-weight:700; font-size:1rem;}
+.nav-btn:disabled {background:#94A3B8; cursor:not-allowed;}
+.submit-btn {background:var(--accent); color:white; border:none; padding:14px 30px; border-radius:12px; cursor:pointer; font-weight:700; font-size:1rem;}
+
+.timer-setup {text-align:center;}
+.timer-setup input {padding:10px; width:80px; border-radius:8px; border:2px solid var(--primary); font-size:1rem; text-align:center;}
 </style>
 </head>
 <body>
 <div class="container">
     <header>
         <div class="logo">VALS REVISION</div>
-        <div class="motto">PHY 102 - Magnetism: 100 Questions</div>
+        <div class="motto">Achieving Greatness, A Pathway To First Class</div>
+        <div class="founder">Founded by Valentine Godson Govina</div>
+        <div class="tsu">Taraba State University TSU | Faculty of Science | Nursing Science</div>
+        <div style="margin-top:10px; font-size:0.9rem; opacity:0.8;">TSU Standard of Questions for Examination Success</div>
     </header>
 
     <div id="setup" class="quiz-box">
-        <h3 style="color:var(--primary); text-align:center;">Set Your Timer</h3>
+        <h3 style="color:var(--primary); text-align:center; margin-bottom:15px;">PHY 101: VECTORS</h3>
+        <p style="text-align:center; margin-bottom:20px;">100 Questions | TSU Exam Standard</p>
         <div class="timer-setup">
-            <p>How many minutes for this 100 questions?</p>
-            <input type="number" id="minutes" value="50" min="5">
+            <p style="margin-bottom:10px;">Set Timer in Minutes:</p>
+            <input type="number" id="minutes" value="60" min="10">
+            <br><br>
             <button class="submit-btn" onclick="startQuiz()">Start Quiz</button>
         </div>
     </div>
@@ -51,7 +71,7 @@
     <div id="quiz" class="quiz-box" style="display:none;">
         <div class="stats">
             <span>Question: <span id="qNum">1</span>/100</span>
-            <span class="timer">Time: <span id="timer">50:00</span></span>
+            <span class="timer">Time: <span id="timer">60:00</span></span>
         </div>
         <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
         <div class="question" id="questionText"></div>
@@ -64,119 +84,120 @@
 
     <div id="result" class="quiz-box" style="display:none;">
         <h3 style="color:var(--primary); text-align:center;">Quiz Complete!</h3>
-        <h2 style="text-align:center; color:var(--accent); margin:20px 0;">Score: <span id="finalScore">0</span>/100</h2>
-        <button class="submit-btn" onclick="location.reload()" style="width:100%;">Restart</button>
+        <h2 style="text-align:center; color:var(--accent); margin:20px 0;">Your Score: <span id="finalScore">0</span>/100</h2>
+        <p style="text-align:center; margin-bottom:20px;" id="remark"></p>
+        <button class="submit-btn" onclick="location.reload()" style="width:100%;">Restart Quiz</button>
     </div>
 </div>
 
 <script>
-// ========== 100 PHYSICS 102 MAGNETISM QUESTIONS ==========
+// ========== 100 PHY101 VECTORS QUESTIONS - TSU STANDARD ==========
 const currentQuestions = [
-{q:"1. What is the SI unit of magnetic field strength?",a:"Tesla",o:["Weber","Tesla","Gauss","Oersted"]},
-{q:"2. Magnetic field lines always form?",a:"Closed loops",o:["Straight lines","Closed loops","Parallel lines","Lines that end in space"]},
-{q:"3. Which material is strongly attracted to a magnet?",a:"Iron",o:["Copper","Aluminum","Iron","Plastic"]},
-{q:"4. The device that converts electrical energy to mechanical energy is?",a:"Electric Motor",o:["Generator","Electric Motor","Transformer","Battery"]},
-{q:"5. Fleming's Right Hand Rule is used to determine?",a:"Direction of induced current",o:["Direction of force","Direction of induced current","Direction of magnetic field","Direction of electrons"]},
-{q:"6. Unit of magnetic flux is?",a:"Weber",o:["Tesla","Weber","Henry","Ampere"]},
-{q:"7. Magnetic field around a straight current-carrying wire is?",a:"Circular",o:["Straight","Circular","Square","Elliptical"]},
-{q:"8. Permeability of free space μ0 =?",a:"4π × 10^-7 H/m",o:["8.85 × 10^-12","4π × 10^-7 H/m","9 × 10^9","1.6 × 10^-19"]},
-{q:"9. Diamagnetic materials are?",a:"Weakly repelled by magnet",o:["Strongly attracted","Weakly repelled by magnet","Not affected","Strongly repelled"]},
-{q:"10. Earth's magnetic field is mainly due to?",a:"Molten iron in outer core",o:["Sun","Molten iron in outer core","Atmosphere","Ocean currents"]},
-{q:"11. A moving charge experiences force in magnetic field called?",a:"Lorentz Force",o:["Gravitational Force","Lorentz Force","Coulomb Force","Frictional Force"]},
-{q:"12. The north pole of a magnet points towards?",a:"Earth's Magnetic South",o:["Earth's Geographic North","Earth's Magnetic South","East","West"]},
-{q:"13. Soft iron is used for electromagnets because?",a:"High permeability, low retentivity",o:["It is cheap","High permeability, low retentivity","It is very strong","It does not rust"]},
-{q:"14. Transformer works on principle of?",a:"Mutual Induction",o:["Self Induction","Mutual Induction","Coulomb's Law","Ohm's Law"]},
-{q:"15. Magnetic susceptibility of diamagnetic material is?",a:"Negative and small",o:["Positive and large","Negative and small","Zero","Infinite"]},
-{q:"16. Force on current-carrying conductor in B-field?",a:"F = BILsinθ",o:["F = ma","F = BILsinθ","F = qvB","F = kx"]},
-{q:"17. MRI machines use?",a:"Strong magnetic fields",o:["X-rays","Strong magnetic fields","Ultrasound","Radio waves"]},
-{q:"18. Magnetic domain theory explains?",a:"Ferromagnetism",o:["Diamagnetism","Paramagnetism","Ferromagnetism","Gravitation"]},
-{q:"19. Unit of magnetic flux density?",a:"Tesla",o:["Weber/m²","Tesla","Ampere-turn","Gauss"]},
-{q:"20. Magnetic field inside a solenoid is?",a:"Uniform",o:["Zero","Non-uniform","Uniform","Circular"]},
-{q:"21. Curie temperature is when?",a:"Ferromagnetic becomes paramagnetic",o:["Metal melts","Ferromagnetic becomes paramagnetic","Conductor becomes insulator","Gas liquefies"]},
-{q:"22. Hall effect measures?",a:"Magnetic field & carrier concentration",o:["Voltage","Magnetic field & carrier concentration","Current","Resistance"]},
-{q:"23. Eddy currents cause?",a:"Heating and energy loss",o:["Cooling","Heating and energy loss","Magnetization","Ionization"]},
-{q:"24. Magnetic moment of current loop?",a:"NIA",o:["BIL","NIA","qVB","μ0NI"]},
-{q:"25. Paramagnetic materials have?",a:"Positive small susceptibility",o:["Negative susceptibility","Positive small susceptibility","Zero","Infinite"]},
-{q:"26. Magnetic field due to long straight wire?",a:"B = μ0I/2πr",o:["B = μ0nI","B = μ0I/2πr","B = μ0NI/L","B = qvB"]},
-{q:"27. Which is not a magnetic material?",a:"Bismuth",o:["Nickel","Cobalt","Iron","Bismuth"]},
-{q:"28. The magnetic field inside a toroid is?",a:"Confined within the toroid",o:["Zero","Uniform everywhere","Confined within the toroid","Radial"]},
-{q:"29. Force between two parallel current wires?",a:"Attractive if currents same direction",o:["Always repulsive","Attractive if currents same direction","Zero","Depends on voltage"]},
-{q:"30. Magnetic dipole moment unit?",a:"A m²",o:["J/T","A m²","N/A","Wb"]},
-{q:"31. Magnetization is?",a:"Magnetic moment per unit volume",o:["Flux per area","Magnetic moment per unit volume","Force per charge","Current per area"]},
-{q:"32. Hysteresis loop area represents?",a:"Energy loss per cycle",o:["Magnetic energy","Energy loss per cycle","Flux","Inductance"]},
-{q:"33. Lenz's Law states?",a:"Induced current opposes change",o:["Current flows with field","Induced current opposes change","Flux is constant","Voltage is induced"]},
-{q:"34. Self inductance unit?",a:"Henry",o:["Tesla","Henry","Weber","Farad"]},
-{q:"35. Magnetic field at center of circular coil?",a:"B = μ0NI/2R",o:["μ0I/2πr","μ0NI/2R","μ0nI","BIL"]},
-{q:"36. A magnetic monopole?",a:"Has not been observed",o:["Exists in magnets","Has not been observed","Is north pole","Is south pole"]},
-{q:"37. Which has highest permeability?",a:"Mu-metal",o:["Air","Copper","Mu-metal","Wood"]},
-{q:"38. Magnetic shielding uses?",a:"High permeability material",o:["Conductor","High permeability material","Insulator","Magnet"]},
-{q:"39. Cyclotron uses?",a:"Magnetic field to accelerate charges",o:["Electric field only","Magnetic field to accelerate charges","Gravity","Laser"]},
-{q:"40. Force on moving charge: F =?",a:"q(v × B)",o:["qE","q(v × B)","BIL","ma"]},
-{q:"41. Magnetic flux through area?",a:"Φ = BAcosθ",o:["BA","BAcosθ","BIL","qvB"]},
-{q:"42. Electromagnets are used in?",a:"Cranes and relays",o:["Compass","Cranes and relays","Solar panels","Thermometer"]},
-{q:"43. Magnetic saturation occurs when?",a:"All domains aligned",o:["Field is zero","All domains aligned","Material melts","Current stops"]},
-{q:"44. Bohr magneton is unit of?",a:"Magnetic moment",o:["Field","Magnetic moment","Flux","Inductance"]},
-{q:"45. Ferrites are?",a:"Ceramic magnetic materials",o:["Metals","Ceramic magnetic materials","Gases","Liquids"]},
-{q:"46. Magnetic declination is?",a:"Angle between true and magnetic north",o:["Dip angle","Angle between true and magnetic north","Field strength","Flux"]},
-{q:"47. Magnetic inclination or dip is?",a:"Angle field makes with horizontal",o:["Declination","Angle field makes with horizontal","Strength","Direction"]},
-{q:"48. Superconductors expel magnetic field?",a:"Meissner effect",o:["Hall effect","Meissner effect","Zeeman effect","Photoelectric"]},
-{q:"49. Magnetic bottle is used for?",a:"Plasma confinement",o:["Storing magnets","Plasma confinement","Measuring field","Cooling"]},
-{q:"50. Van de Graaff generator uses?",a:"Electrostatics not magnetism",o:["Magnetism","Electrostatics not magnetism","Induction","Conduction"]},
-{q:"51. Magnetic Reynolds number relates?",a:"Advection to diffusion of B-field",o:["Force to mass","Advection to diffusion of B-field","Energy to work","Current to voltage"]},
-{q:"52. Geomagnetic storm is caused by?",a:"Solar wind",o:["Earthquakes","Solar wind","Lightning","Tides"]},
-{q:"53. Magnetostriction is?",a:"Change in shape due to magnetization",o:["Change in resistance","Change in shape due to magnetization","Change in color","Change in temperature"]},
-{q:"54. Barkhausen effect is due to?",a:"Domain wall motion",o:["Electron spin","Domain wall motion","Nuclear spin","Thermal motion"]},
-{q:"55. Magnetic anomaly refers to?",a:"Local variation in Earth's field",o:["Strong magnet","Local variation in Earth's field","Zero field","Uniform field"]},
-{q:"56. Paleomagnetism studies?",a:"Rock magnetization history",o:["Ancient magnets","Rock magnetization history","Sun's field","Moon's field"]},
-{q:"57. Magnetic compass deviation is caused by?",a:"Local magnetic materials",o:["Wind","Local magnetic materials","Temperature","Humidity"]},
-{q:"58. Gyromagnetic ratio relates?",a:"Magnetic moment to angular momentum",o:["Charge to mass","Magnetic moment to angular momentum","Energy to time","Force to area"]},
-{q:"59. Nuclear magnetic resonance uses?",a:"Radio waves + magnetic field",o:["X-rays","Radio waves + magnetic field","Light","Sound"]},
-{q:"60. Electron spin magnetic moment?",a:"~9.27 × 10^-24 J/T",o:["1.6e-19","~9.27 × 10^-24 J/T","9.8","3e8"]},
-{q:"61. Magnetic mirror reflects?",a:"Charged particles",o:["Light","Charged particles","Sound","Heat"]},
-{q:"62. Magnetic reconnection occurs in?",a:"Solar flares",o:["Batteries","Solar flares","Motors","Generators"]},
-{q:"63. Dynamo theory explains?",a:"Planetary magnetic fields",o:["Electric motors","Planetary magnetic fields","Generators","Transformers"]},
-{q:"64. Magnetic viscosity is?",a:"Time-dependent magnetization",o:["Fluid property","Time-dependent magnetization","Resistance","Inductance"]},
-{q:"65. Spin valve uses?",a:"Giant magnetoresistance",o:["Hall effect","Giant magnetoresistance","Photo effect","Thermo effect"]},
-{q:"66. Magnetic tape stores data by?",a:"Magnetic domains",o:["Electric charge","Magnetic domains","Light","Heat"]},
-{q:"67. Hard disk uses?",a:"Perpendicular recording",o:["Optical","Perpendicular recording","Mechanical","Chemical"]},
-{q:"68. Magnetic levitation uses?",a:"Repulsive magnetic forces",o:["Gravity","Repulsive magnetic forces","Air pressure","Vacuum"]},
-{q:"69. SQUID measures?",a:"Very weak magnetic fields",o:["Current","Very weak magnetic fields","Voltage","Resistance"]},
-{q:"70. Magnetocaloric effect is?",a:"Temp change with magnetic field",o:["Pressure change","Temp change with magnetic field","Volume change","Color change"]},
-{q:"71. Alnico magnets contain?",a:"Aluminum, Nickel, Cobalt",o:["Iron, Copper","Aluminum, Nickel, Cobalt","Steel","Plastic"]},
-{q:"72. Neodymium magnets are?",a:"Rare earth magnets",o:["Ceramic","Rare earth magnets","Carbon","Silicon"]},
-{q:"73. Magnetic hysteresis is?",a:"Lag of B behind H",o:["Current lag","Lag of B behind H","Voltage lag","Flux lag"]},
-{q:"74. Coercivity is?",a:"Field to demagnetize material",o:["Magnetization","Field to demagnetize material","Permeability","Susceptibility"]},
-{q:"75. Remanence is?",a:"Residual magnetization",o:["Initial magnetization","Residual magnetization","Saturation","Coercivity"]},
-{q:"76. Magnetic circuit law: mmf =?",a:"NI",o:["BIL","NI","V/R","qV"]},
-{q:"77. Reluctance is analogous to?",a:"Resistance",o:["Capacitance","Resistance","Inductance","Conductance"]},
-{q:"78. Magnetic flux density in air gap?",a:"B = μ0H",o:["B = μH","B = μ0H","B = NI","B = ΦA"]},
-{q:"79. Eddy current brake uses?",a:"Magnetic damping",o:["Friction","Magnetic damping","Air resistance","Hydraulics"]},
-{q:"80. Magnetic amplifier uses?",a:"Saturable reactor",o:["Transistor","Saturable reactor","Diode","Capacitor"]},
-{q:"81. Magnetometer measures?",a:"Magnetic field strength",o:["Current","Magnetic field strength","Voltage","Power"]},
-{q:"82. Gauss meter is a type of?",a:"Magnetometer",o:["Voltmeter","Magnetometer","Ammeter","Ohmmeter"]},
-{q:"83. Magnetic field from dipole at axis?",a:"B = μ0/4π * 2M/r³",o:["μ0M/2πr","μ0/4π * 2M/r³","μ0NI","BIL"]},
-{q:"84. Magnetic potential?",a:"Scalar for current-free region",o:["Vector always","Scalar for current-free region","Does not exist","Always zero"]},
-{q:"85. Biot-Savart law gives?",a:"Field due to current element",o:["Force","Field due to current element","Flux","Inductance"]},
-{q:"86. Ampere's law: ∮B·dl =?",a:"μ0I_enclosed",o:["0","μ0I_enclosed","ε0","q/ε0"]},
-{q:"87. Faraday's law: emf =?",a:"-dΦ/dt",o:["IR","-dΦ/dt","qvB","BIL"]},
-{q:"88. Maxwell's 4th equation?",a:"∇×B = μ0J + μ0ε0 dE/dt",o:["∇·E=ρ/ε0","∇×B = μ0J + μ0ε0 dE/dt","∇·B=0","∇×E=-dB/dt"]},
-{q:"89. Magnetic pressure?",a:"B²/2μ0",o:["ρv²","B²/2μ0","PV","F/A"]},
-{q:"90. Alfvén speed?",a:"B/√(μ0ρ)",o:["E/B","B/√(μ0ρ)","√(gL)","c/n"]},
-{q:"91. Magnetic helicity?",a:"∫A·B dV",o:["∫E·B","∫A·B dV","∫B²","∫J·E"]},
-{q:"92. Magnetic reconnection rate?",a:"Depends on resistivity",o:["Constant","Depends on resistivity","Zero","Infinite"]},
-{q:"93. Magnetic island?",a:"Flux tube in plasma",o:["Land mass","Flux tube in plasma","Star","Galaxy"]},
-{q:"94. Magnetosheath?",a:"Region behind bow shock",o:["Inside magnetosphere","Region behind bow shock","Solar surface","Earth core"]},
-{q:"95. Radiation belt?",a:"Trapped charged particles",o:["Ozone layer","Trapped charged particles","Clouds","Atmosphere"]},
-{q:"96. Magnetic storm Dst index?",a:"Measures ring current",o:["Solar wind","Measures ring current","Temperature","Pressure"]},
-{q:"97. Substorm?",a:"Magnetospheric energy release",o:["Earthquake","Magnetospheric energy release","Volcano","Tornado"]},
-{q:"98. Magnetic field line reconnection?",a:"Changes topology",o:["Increases length","Changes topology","Creates matter","Destroys energy"]},
-{q:"99. Frozen-in flux theorem?",a:"Field lines move with plasma",o:["Field is static","Field lines move with plasma","Flux is zero","B=0"]},
-{q:"100. Region where magnetic force acts?",a:"Magnetic Field",o:["Electric Field","Gravitational Field","Magnetic Field","Nuclear Field"]}
+{q:"1. Which of the following is a vector quantity?",a:"Displacement",o:["Mass","Time","Temperature","Displacement"]},
+{q:"2. The resultant of two vectors can be zero when?",a:"They are equal and opposite",o:["They are parallel","They are equal and opposite","They are perpendicular","One is zero"]},
+{q:"3. If A = 3i + 4j, the magnitude of A is?",a:"5",o:["3","4","5","7"]},
+{q:"4. The dot product of two perpendicular vectors is?",a:"Zero",o:["1","-1","Zero","Product of magnitudes"]},
+{q:"5. Cross product of two parallel vectors is?",a:"Zero vector",o:["Unit vector","Zero vector","Maximum","Equal to product"]},
+{q:"6. Unit vector in direction of A is?",a:"A/|A|",o:["|A|","A/|A|","|A|/A","A²"]},
+{q:"7. If A+B = 0, then?",a:"A = -B",o:["A = B","A = -B","A = 0","B = 0"]},
+{q:"8. Scalar product is also called?",a:"Dot product",o:["Cross product","Dot product","Vector product","Tensor product"]},
+{q:"9. Vector product is also called?",a:"Cross product",o:["Dot product","Cross product","Scalar product","Sum product"]},
+{q:"10. Magnitude of i x j is?",a:"1",o:["0","1","i","j"]},
+{q:"11. A vector has both?",a:"Magnitude and direction",o:["Magnitude only","Direction only","Magnitude and direction","Neither"]},
+{q:"12. Resultant of 3N and 4N at 90° is?",a:"5N",o:["7N","1N","5N","12N"]},
+{q:"13. If A.B = |A||B|, angle between them is?",a:"0°",o:["0°","90°","180°","45°"]},
+{q:"14. If A×B = 0, angle between them is?",a:"0° or 180°",o:["90°","0° or 180°","45°","60°"]},
+{q:"15. Resolution of vector means?",a:"Splitting into components",o:["Adding vectors","Splitting into components","Multiplying vectors","Finding magnitude"]},
+{q:"16. i.j =?",a:"0",o:["0","1","i","j"]},
+{q:"17. i x i =?",a:"0",o:["0","1","i","k"]},
+{q:"18. j x k =?",a:"i",o:["i","j","k","0"]},
+{q:"19. A vector multiplied by scalar 2 becomes?",a:"Magnitude doubled",o:["Direction reversed","Magnitude doubled","No change","Zero"]},
+{q:"20. Negative of a vector?",a:"Same magnitude opposite direction",o:["Zero vector","Same magnitude opposite direction","Double magnitude","Same direction"]},
+{q:"21. Triangle law of vector addition states?",a:"Two sides = third side",o:["Sum of squares","Two sides = third side","Parallelogram","Polygon law"]},
+{q:"22. Parallelogram law is used for?",a:"Adding two vectors",o:["Subtracting vectors","Adding two vectors","Multiplying vectors","Resolving vectors"]},
+{q:"23. If |A+B| = |A-B|, then angle is?",a:"90°",o:["0°","90°","180°","45°"]},
+{q:"24. Maximum resultant of two vectors occurs when?",a:"0°",o:["0°","90°","180°","270°"]},
+{q:"25. Minimum resultant of two vectors occurs when?",a:"180°",o:["0°","90°","180°","270°"]},
+{q:"26. Position vector of point 3,4,5 is?",a:"3i+4j+5k",o:["i+j+k","3i+4j+5k","5i+4j+3k","0"]},
+{q:"27. Distance between two points with position vectors?",a:"|r2 - r1|",o:["r1+r2","|r2 - r1|","r2-r1","r1*r2"]},
+{q:"28. Work done W = F.d is?",a:"Scalar product",o:["Cross product","Scalar product","Vector product","Division"]},
+{q:"29. Torque τ = r×F is?",a:"Vector product",o:["Scalar product","Vector product","Dot product","Sum"]},
+{q:"30. Area of parallelogram = |A×B|",a:"True",o:["True","False","Sometimes","Never"]},
+{q:"31. Component of A along x-axis?",a:"A cosθ",o:["A sinθ","A cosθ","A tanθ","A/ cosθ"]},
+{q:"32. Component of A along y-axis?",a:"A sinθ",o:["A cosθ","A sinθ","A tanθ","A/ sinθ"]},
+{q:"33. If A = 2i+3j-k, B = i-j+2k, then A+B =?",a:"3i+2j+k",o:["3i+2j+k","i+4j-3k","2i+2j+k","0"]},
+{q:"34. A-B for above vectors =?",a:"i+4j-3k",o:["3i+2j+k","i+4j-3k","2i+2j+k","0"]},
+{q:"35. A.B for above vectors =?",a:"-3",o:["-3","3","0","5"]},
+{q:"36. A×B for above vectors =?",a:"5i-5j-5k",o:["5i-5j-5k","-5i+5j+5k","0","i+j+k"]},
+{q:"37. Direction cosines satisfy?",a:"l²+m²+n²=1",o:["l+m+n=1","l²+m²+n²=1","l*m*n=1","l=m=n"]},
+{q:"38. Vector triple product A×(B×C) =?",a:"B(A.C)-C(A.B)",o:["A(B.C)","B(A.C)-C(A.B)","C(A.B)","0"]},
+{q:"39. Scalar triple product [ABC] =?",a:"A.(B×C)",o:["A×B×C","A.(B×C)","(A×B).C","0"]},
+{q:"40. [ABC] = 0 means vectors are?",a:"Coplanar",o:["Parallel","Perpendicular","Coplanar","Equal"]},
+{q:"41. Gradient of scalar is?",a:"Vector",o:["Scalar","Vector","Tensor","Zero"]},
+{q:"42. Divergence of vector is?",a:"Scalar",o:["Scalar","Vector","Tensor","Zero"]},
+{q:"43. Curl of vector is?",a:"Vector",o:["Scalar","Vector","Tensor","Zero"]},
+{q:"44. ∇.B = 0 means?",a:"No magnetic monopoles",o:["Charge conservation","No magnetic monopoles","Gauss law","Faraday law"]},
+{q:"45. Unit vector has magnitude?",a:"1",o:["0","1","∞","Depends"]},
+{q:"46. Zero vector has?",a:"Zero magnitude no direction",o:["Any direction","Zero magnitude no direction","Unit magnitude","Infinite magnitude"]},
+{q:"47. Two vectors equal if?",a:"Same magnitude and direction",o:["Same magnitude","Same direction","Same magnitude and direction","Different"]},
+{q:"48. Relative velocity Vab =?",a:"Va - Vb",o:["Va + Vb","Va - Vb","Vb - Va","Va*Vb"]},
+{q:"49. Projection of A on B =?",a:"(A.B)/|B|",o:["A.B","(A.B)/|B|","|A||B|","A×B"]},
+{q:"50. Angle between A and B: cosθ =?",a:"A.B/|A||B|",o:["A×B/|A||B|","A.B/|A||B|","|A|/|B|","|B|/|A|"]},
+{q:"51. If 3 vectors form triangle, sum =?",a:"0",o:["1","0","Maximum","Minimum"]},
+{q:"52. Polygon law of vectors?",a:"Closed polygon sum=0",o:["Open polygon","Closed polygon sum=0","Triangle only","Square only"]},
+{q:"53. Lami's theorem relates?",a:"3 forces in equilibrium",o:["2 forces","3 forces in equilibrium","4 forces","5 forces"]},
+{q:"54. Vector differentiation dA/dt gives?",a:"Rate of change",o:["Magnitude","Rate of change","Direction","Scalar"]},
+{q:"55. If dA/dt = 0, then A is?",a:"Constant vector",o:["Zero vector","Constant vector","Unit vector","Null vector"]},
+{q:"56. ∫A dt gives?",a:"Change in A",o:["A","Change in A","|A|","0"]},
+{q:"57. Velocity is derivative of?",a:"Displacement",o:["Distance","Displacement","Speed","Acceleration"]},
+{q:"58. Acceleration is derivative of?",a:"Velocity",o:["Speed","Velocity","Distance","Force"]},
+{q:"59. Centripetal acceleration direction?",a:"Towards center",o:["Away from center","Towards center","Tangential","Zero"]},
+{q:"60. Angular velocity ω is?",a:"Vector",o:["Scalar","Vector","Tensor","Constant"]},
+{q:"61. v = ω × r relates?",a:"Linear and angular velocity",o:["Force and torque","Linear and angular velocity","Work and energy","Power and time"]},
+{q:"62. Right hand screw rule gives?",a:"Direction of cross product",o:["Magnitude","Direction of cross product","Angle","Zero"]},
+{q:"63. Left hand rule used for?",a:"Fleming's law",o:["Cross product","Fleming's law","Dot product","Addition"]},
+{q:"64. Orthogonal vectors have dot product?",a:"0",o:["1","0","-1","|A||B|"]},
+{q:"65. Orthonormal basis vectors?",a:"i,j,k",o:["1,2,3","i,j,k","x,y,z","a,b,c"]},
+{q:"66. Linear combination of vectors?",a:"Sum of scaled vectors",o:["Product","Sum of scaled vectors","Division","Cross product"]},
+{q:"67. Basis of 3D space needs?",a:"3 independent vectors",o:["1","2","3 independent vectors","4"]},
+{q:"68. Coplanar vectors lie in?",a:"Same plane",o:["Same line","Same plane","Different planes","Space"]},
+{q:"69. Collinear vectors lie on?",a:"Same line",o:["Same line","Same plane","Parallel lines","Different lines"]},
+{q:"70. Vector area of triangle?",a:"1/2 |AB×AC|",o:["|AB×AC|","1/2 |AB×AC|","AB.AC","0"]},
+{q:"71. Moment of force about point?",a:"r × F",o:["F × r","r × F","r.F","F/r"]},
+{q:"72. Angular momentum L =?",a:"r × p",o:["p × r","r × p","mvr","Iω"]},
+{q:"73. Magnetic force F = q(v×B)?",a:"True",o:["True","False","Sometimes","Never"]},
+{q:"74. Electric flux Φ = E.A?",a:"Dot product",o:["Cross product","Dot product","Scalar","Vector"]},
+{q:"75. Poynting vector S = E×H?",a:"Cross product",o:["Dot product","Cross product","Sum","Difference"]},
+{q:"76. If A=5, B=12, angle 90°, |A+B|=?",a:"13",o:["17","7","13","60"]},
+{q:"77. If A=5, B=12, angle 180°, |A-B|=?",a:"17",o:["17","7","13","0"]},
+{q:"78. Vector resolution in 3D needs?",a:"3 components",o:["1","2","3 components","4"]},
+{q:"79. Spherical coordinates use?",a:"r,θ,φ",o:["x,y,z","r,θ,φ","ρ,φ,z","a,b,c"]},
+{q:"80. Cylindrical coordinates use?",a:"ρ,φ,z",o:["x,y,z","r,θ,φ","ρ,φ,z","a,b,c"]},
+{q:"81. Del operator ∇ is?",a:"Vector operator",o:["Scalar","Vector operator","Matrix","Constant"]},
+{q:"82. Laplacian ∇² operates on?",a:"Scalar or vector",o:["Scalar only","Scalar or vector","Vector only","Tensor only"]},
+{q:"83. Conservative field has curl =?",a:"0",o:["1","0","∞","Constant"]},
+{q:"84. Solenoidal field has divergence =?",a:"0",o:["1","0","∞","Constant"]},
+{q:"85. Green's theorem relates?",a:"Line and surface integral",o:["Dot and cross","Line and surface integral","Scalar and vector","2D and 3D"]},
+{q:"86. Stokes theorem relates?",a:"Surface and line integral",o:["Volume and surface","Surface and line integral","Line and volume","Point and line"]},
+{q:"87. Gauss divergence theorem?",a:"Volume and surface integral",o:["Line and surface","Volume and surface integral","Point and surface","Line and volume"]},
+{q:"88. Vector field is irrotational if?",a:"∇×F=0",o:["∇.F=0","∇×F=0","∇²F=0","F=0"]},
+{q:"89. Vector field is solenoidal if?",a:"∇.F=0",o:["∇.F=0","∇×F=0","∇²F=0","F=0"]},
+{q:"90. Potential function exists for?",a:"Conservative field",o:["Any field","Conservative field","Solenoidal field","Zero field"]},
+{q:"91. Equipotential surface ⊥ to?",a:"Field lines",o:["Parallel to field","⊥ to field lines","At 45°","Random"]},
+{q:"92. Gradient points in direction of?",a:"Maximum increase",o:["Minimum","Maximum increase","Zero change","Perpendicular"]},
+{q:"93. Directional derivative = ∇f.u?",a:"Dot product",o:["Cross product","Dot product","Division","Sum"]},
+{q:"94. Vector identity: ∇(AB)=?",a:"A∇B + B∇A",o:["∇A + ∇B","A∇B + B∇A","AB∇","0"]},
+{q:"95. Vector identity: ∇.(A×B)=?",a:"B.∇×A - A.∇×B",o:["A.∇×B","B.∇×A - A.∇×B","∇A×∇B","0"]},
+{q:"96. If |A|=3, |B|=4, A.B=6, angle=?",a:"60°",o:["30°","45°","60°","90°"]},
+{q:"97. If |A|=5, |B|=5, A×B=0, angle=?",a:"0° or 180°",o:["90°","0° or 180°","45°","60°"]},
+{q:"98. Resultant of 10N East and 10N North?",a:"14.14N NE",o:["20N","0N","14.14N NE","10N"]},
+{q:"99. Unit vector along 3i+4j?",a:"0.6i+0.8j",o:["3i+4j","0.6i+0.8j","1i+1j","5i+5j"]},
+{q:"100. Vectors are fundamental in?",a:"Physics and Engineering",o:["Art only","Physics and Engineering","Music","Cooking"]}
 ];
 
 let currentQ = 0;
 let userAnswers = Array(100).fill(null);
-let timeLeft = 50 * 60; // 50 minutes default
+let timeLeft = 60 * 60;
 let timerInterval;
 
 function startQuiz() {
@@ -203,13 +224,11 @@ function loadQuestion() {
     document.getElementById('qNum').innerText = currentQ + 1;
     document.getElementById('questionText').innerText = q.q;
     document.getElementById('progressBar').style.width = ((currentQ/100)*100) + '%';
-
     document.getElementById('prevBtn').disabled = currentQ === 0;
-    document.getElementById('nextBtn').innerText = currentQ === 99? 'Submit' : 'Next →';
+    document.getElementById('nextBtn').innerText = currentQ === 99? 'Submit Quiz' : 'Next →';
 
-    let options = q.o;
     document.getElementById('optionsBox').innerHTML = '';
-    options.forEach(opt => {
+    q.o.forEach(opt => {
         let btn = document.createElement('button');
         btn.innerText = opt;
         if(userAnswers[currentQ] === opt) btn.classList.add('selected');
@@ -234,6 +253,8 @@ function submitQuiz() {
     document.getElementById('quiz').style.display = 'none';
     document.getElementById('result').style.display = 'block';
     document.getElementById('finalScore').innerText = score;
+    let remark = score >= 70? "Excellent! First Class Loading..." : score >= 50? "Good! Keep Practicing" : "Keep Studying, You Can Do It!";
+    document.getElementById('remark').innerText = remark;
 }
 </script>
 </body>
